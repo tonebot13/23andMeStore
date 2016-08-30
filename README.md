@@ -1,7 +1,7 @@
 Python ver. = 2.7.12
 Use FireFox ver. = 46.0.1 (issues with versions newer - might be a webdriver problem fyi)
 
-This test case do the following:
+This test case do the following:<br>
 1) Visit store.23andme.com/en-us/<br>
 2) Add 5 kits and enter unique names for each kit.<br>
 3) Continue to the shipping page and enter a valid US shipping address and other info.<br>
