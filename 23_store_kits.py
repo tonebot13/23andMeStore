@@ -10,9 +10,10 @@ class TestStoreCart(unittest.TestCase):
 
 	def test_store_cart_transaction(self): 
 		driver = self.driver
+		
 		#store landing page.
 		driver.get("https://store.23andme.com/en-us/cart/")
-		assert 'DNA Genetic Testing & Analysis' in driver.title
+		self.assertEqual(driver.current_url,"https://store.23andme.com/en-us/cart/")
 		print (driver.current_url)
 		
 		#add first kit.
@@ -29,13 +30,13 @@ class TestStoreCart(unittest.TestCase):
 			name_input.send_keys("Test%s" %count)
 			count += 1
 		
-		#using sleep for now, but it works. refactor using wait.
+		#using sleep for now, it works. refactor using wait.
 		time.sleep(5) 
 		driver.find_element_by_xpath("//input[contains(@value,'continue')]").click()
 
 		#shipping address form.
 		time.sleep(5)
-		assert 'DNA Genetic Testing & Analysis' in driver.title
+		self.assertEqual(driver.current_url,"https://store.23andme.com/en-us/shipping/")
 		print (driver.current_url)
 
 		driver.find_element_by_xpath("//input[@id='id_first_name']").send_keys("Todd")
@@ -55,11 +56,11 @@ class TestStoreCart(unittest.TestCase):
 
 		#verify address page. using sleep for now, but it works. refactor using wait.
 		time.sleep(5)
-		assert 'DNA Genetic Testing & Analysis' in driver.title
+		self.assertEqual(driver.current_url,"https://store.23andme.com/en-us/verifyaddress/")
 		print (driver.current_url)
 
 		driver.find_element_by_xpath("//input[@value='ship to verified address']").click()
-		assert 'DNA Genetic Testing & Analysis' in driver.title
+		self.assertEqual(driver.current_url,"https://store.23andme.com/en-us/payment/")
 		print (driver.current_url)  #lands on payment page see term output.
 
 	def tearDown(self):
