@@ -30,7 +30,7 @@ class TestStoreCart(unittest.TestCase):
 			name_input.send_keys("Test%s" %count)
 			count += 1
 		
-		#using sleep for now, it works. refactor using wait.
+		#using sleep for now, it works. need to refactor using wait.
 		time.sleep(5) 
 		driver.find_element_by_xpath("//input[contains(@value,'continue')]").click()
 
@@ -54,14 +54,15 @@ class TestStoreCart(unittest.TestCase):
 		driver.find_element_by_xpath("//textarea[@id='id_gift_message']").send_keys("gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift m")
 		driver.find_element_by_xpath("//input[@class='submit button-continue']").click()
 
-		#verify address page. using sleep for now, but it works. refactor using wait.
+		#verify address page. using sleep for now, it works. need to refactor using wait.
 		time.sleep(5)
 		self.assertEqual(driver.current_url,"https://store.23andme.com/en-us/verifyaddress/")
 		print (driver.current_url)
 
+		#lands on payment page.
 		driver.find_element_by_xpath("//input[@value='ship to verified address']").click()
 		self.assertEqual(driver.current_url,"https://store.23andme.com/en-us/payment/")
-		print (driver.current_url)  #lands on payment page see term output.
+		print (driver.current_url)  
 
 	def tearDown(self):
 		self.driver.close()
