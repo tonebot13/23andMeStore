@@ -12,7 +12,7 @@ class TestStoreCart(unittest.TestCase):
 		driver = self.driver
 		#store landing page.
 		driver.get("https://store.23andme.com/en-us/cart/")
-		assert (driver.current_url)
+		assert 'DNA Genetic Testing & Analysis' in driver.title
 		print (driver.current_url)
 		
 		#add first kit.
@@ -35,7 +35,7 @@ class TestStoreCart(unittest.TestCase):
 
 		#shipping address form.
 		time.sleep(5)
-		assert (driver.current_url)
+		assert 'DNA Genetic Testing & Analysis' in driver.title
 		print (driver.current_url)
 
 		driver.find_element_by_xpath("//input[@id='id_first_name']").send_keys("Todd")
@@ -55,11 +55,11 @@ class TestStoreCart(unittest.TestCase):
 
 		#verify address page. using sleep for now, but it works. refactor using wait.
 		time.sleep(5)
-		assert (driver.current_url)
+		assert 'DNA Genetic Testing & Analysis' in driver.title
 		print (driver.current_url)
 
 		driver.find_element_by_xpath("//input[@value='ship to verified address']").click()
-		assert (driver.current_url) #lands on payment page see term output.
+		assert 'DNA Genetic Testing & Analysis' in driver.title
 		print (driver.current_url)  #lands on payment page see term output.
 
 	def tearDown(self):
