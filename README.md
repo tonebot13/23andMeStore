@@ -1,3 +1,5 @@
+<b>note append ?ts=4 to the URL to view wanted tab size (not sure why the tabs got touched - my local file is correct)<b>
+
 Python ver. = 2.7.12<br>
 
 Use FireFox ver. = 46.0.1 (issues with versions newer - might be a webdriver problem fyi)<br>
