@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 class TestStoreCart(unittest.TestCase):
 
 	def setUp(self):
-		self.driver = webdriver.Firefox()
+		self.driver = webdriver.Firefox() 
 
 	def test_store_cart_transaction(self): 
 		driver = self.driver
