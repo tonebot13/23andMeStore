@@ -67,10 +67,6 @@ class TestStoreCart(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-<<<<<<< HEAD
 if __name__ == "__main__":
     unittest.main()
-=======
-if __name__ == "__main__": 
-	unittest.main()
->>>>>>> origin/master
+
