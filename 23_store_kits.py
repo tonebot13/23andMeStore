@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 # wip
 class TestStoreCart(unittest.TestCase):
 
@@ -70,7 +71,9 @@ class TestStoreCart(unittest.TestCase):
             "//input[@id='id_int_phone']").send_keys("1 408-268-0001")
         driver.find_element_by_xpath("//input[@id='id_add_gift']").click()
         driver.find_element_by_xpath("//textarea[@id='id_gift_message']").send_keys(
-            "gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift m")
+            "gift message gift message gift message gift message gift message gift") 
+               
+  
         driver.find_element_by_xpath(
             "//input[@class='submit button-continue']").click()
 
