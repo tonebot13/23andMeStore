@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+#WIP
 class TestStoreCart(unittest.TestCase):
 
     def setUp(self):
@@ -37,12 +37,12 @@ class TestStoreCart(unittest.TestCase):
         for name_input in name_input_list:
             name_input.send_keys("Test%s" % count)
             count += 1
-
-        WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@value='continue']"))).click()
+        
+        time.sleep(5)
+        driver.find_element_by_xpath("//input[@class='submit button-continue']").click()
         
         # Address form
-        time.sleep(10)
+        time.sleep(5)
         self.assertEqual(driver.current_url,
                          "https://store.23andme.com/en-us/shipping/")
         print(driver.current_url)
@@ -71,10 +71,6 @@ class TestStoreCart(unittest.TestCase):
         driver.find_element_by_xpath("//input[@id='id_add_gift']").click()
         driver.find_element_by_xpath("//textarea[@id='id_gift_message']").send_keys(
             "gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift message gift m")
-        
-        
-        
-
         driver.find_element_by_xpath(
             "//input[@class='submit button-continue']").click()
 
