@@ -5,7 +5,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-#WIP
+
+
+# wip
+
 class TestStoreCart(unittest.TestCase):
 
     def setUp(self):
@@ -37,16 +40,15 @@ class TestStoreCart(unittest.TestCase):
         for name_input in name_input_list:
             name_input.send_keys("Test%s" % count)
             count += 1
-        
         time.sleep(5)
-        driver.find_element_by_xpath("//input[@class='submit button-continue']").click()
-        
+        driver.find_element_by_xpath(
+            "//input[@class='submit button-continue']").click()
+
         # Address form
         time.sleep(5)
         self.assertEqual(driver.current_url,
                          "https://store.23andme.com/en-us/shipping/")
         print(driver.current_url)
-        
         driver.find_element_by_xpath(
             "//input[@id='id_first_name']").send_keys("Sandy")
         driver.find_element_by_xpath(
@@ -76,15 +78,13 @@ class TestStoreCart(unittest.TestCase):
 
         # verify address page.
         WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@value='ship to verified address']"))) 
-
+            EC.element_to_be_clickable((By.XPATH, "//input[@value='ship to verified address']")))
         self.assertEqual(driver.current_url,
                          "https://store.23andme.com/en-us/verifyaddress/")
         print(driver.current_url)
-
-        
         driver.find_element_by_xpath(
             "//input[@value='ship to verified address']").click()
+        
         # lands on payment page.
         self.assertEqual(driver.current_url,
                          "https://store.23andme.com/en-us/payment/")
