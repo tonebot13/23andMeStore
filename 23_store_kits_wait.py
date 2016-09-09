@@ -23,7 +23,7 @@ class TestStoreCart(unittest.TestCase):
         print(driver.current_url)
 
         # add first kit
-        driver.find_element_by_xpath("//*[.='Add a kit.']").click()
+        driver.find_element_by_link_text("Add a kit.").click()
 
         # add addtional kits
         WebDriverWait(driver, 12).until(
@@ -48,32 +48,21 @@ class TestStoreCart(unittest.TestCase):
         self.assertEqual(driver.current_url,
                          "https://store.23andme.com/en-us/shipping/")
         print(driver.current_url)
-        driver.find_element_by_xpath(
-            "//input[@id='id_first_name']").send_keys("Sandy")
-        driver.find_element_by_xpath(
-            "//input[@id='id_last_name']").send_keys("Thomson")
-        driver.find_element_by_xpath(
-            "//input[@id='id_company']").send_keys("self")
-        driver.find_element_by_xpath(
-            "//input[@id='id_address']").send_keys("6573 Northridge Dr.")
-        driver.find_element_by_xpath(
-            "//input[@id='id_address2']").send_keys("House")
-        driver.find_element_by_xpath(
-            "//input[@id='id_city']").send_keys("San Jose")
-        driver.find_element_by_xpath(
-            "//select[@id='id_state']").send_keys("California")
-        driver.find_element_by_xpath(
-            "//input[@id='id_postal_code']").send_keys("95120")
-        driver.find_element_by_xpath("//select[@id='id_country']")
-        driver.find_element_by_xpath(
-            "//input[@id='id_email']").send_keys("sthomson@netscape.net")
-        driver.find_element_by_xpath(
-            "//input[@id='id_int_phone']").send_keys("1 408-268-0001")
-        driver.find_element_by_xpath("//input[@id='id_add_gift']").click()
-        driver.find_element_by_xpath("//textarea[@id='id_gift_message']").send_keys(
+        driver.find_element_by_name("first_name").send_keys("Sandy")
+        driver.find_element_by_name("last_name").send_keys("Thomson")
+        driver.find_element_by_name("company").send_keys("self")
+        driver.find_element_by_name("address").send_keys("6573 Northridge Dr.")
+        driver.find_element_by_name("address2").send_keys("House")
+        driver.find_element_by_name("city").send_keys("San Jose")
+        driver.find_element_by_name("state").send_keys("California")
+        driver.find_element_by_name("postal_code").send_keys("95120")
+        driver.find_element_by_name("country")
+        driver.find_element_by_name("email").send_keys("sthomson@netscape.net")
+        driver.find_element_by_id("id_int_phone").send_keys("1 408-268-0001")
+        driver.find_element_by_name("add_gift").click()
+        driver.find_element_by_name("gift_message").send_keys(
             "gift message gift message gift message gift message gift message gift")                
-        driver.find_element_by_xpath(
-            "//input[@class='submit button-continue']").click()
+        driver.find_element_by_xpath("//input[@class='submit button-continue']").click()
 
         # verify address page.
         WebDriverWait(driver, 10).until(
